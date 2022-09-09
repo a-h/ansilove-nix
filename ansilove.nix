@@ -6,22 +6,25 @@
 , ...
 } @ args:
 
+let
+  libansilove = pkgs.callPackage ./libansilove.nix {};
+in
 stdenv.mkDerivation rec {
-  pname = "libansilove";
-  version = "1.3.1";
+  pname = "ansilove";
+  version = "4.1.6";
 
   src = fetchFromGitHub ({
     owner = "ansilove";
-    repo = "libansilove";
-    rev = "1.3.1";
+    repo = "ansilove";
+    rev = "4.1.6";
     fetchSubmodules = false;
-    sha256 = "sha256-toEMELi+3pnIjYOiS0kdQbkzbgCejF6JI+7Jtyxln5c=";
+    sha256 = "sha256-PFFz25QArx1evzzr9n/y9TE/hmQDZY81TElZekQsKcw=";
   });
 
   enableParallelBuilding = true;
 
   nativeBuildInputs = [ 
     pkgs.cmake
-    pkgs.gd
+    libansilove
   ];
 }

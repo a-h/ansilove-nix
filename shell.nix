@@ -1,8 +1,8 @@
 with import <nixpkgs> {};
 let
-  libansilove = callPackage ./libansilove.nix {};
+  ansilove = callPackage ./ansilove.nix {};
 in
 stdenv.mkDerivation rec {
   name = "ansilove-shell";
-  buildInputs = [ libansilove ];
+  buildInputs = [ ansilove ];
 }
